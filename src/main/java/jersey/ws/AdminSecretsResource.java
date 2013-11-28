@@ -18,20 +18,42 @@
  */
 package jersey.ws;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.core.Response;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import jersey.model.Student;
 
 import org.apache.shiro.authz.annotation.RequiresRoles;
 
 @Path("/admin")
 @RequiresRoles("admin")
 public class AdminSecretsResource {
-   
-   @GET
-   public String tellSecret() {
-      final String output = "Shh, the secret answer is 41.";
-      return "ddddd";
-   }
 
+	@GET
+	public String tellSecret() {
+		final String output = "Shh, the secret answer is 41.";
+		return output;
+	}
+
+	@POST
+	@Path(value = "/save")
+	@Consumes(MediaType.APPLICATION_ATOM_XML)
+	public String saveStudent(Student student) {
+		System.out.println(student);
+		return "success";
+	}
+	
+	@POST
+	@Path(value = "/form")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String formTest(Student student) {
+		
+		return "success";
+	}
+	
+	
 }

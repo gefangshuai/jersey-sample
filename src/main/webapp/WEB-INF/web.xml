@@ -25,7 +25,10 @@
 			<param-name>com.sun.jersey.config.property.resourceConfigClass</param-name>
 			<param-value>com.sun.jersey.api.core.PackagesResourceConfig</param-value>
 		</init-param>
-
+		<init-param>
+			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+			<param-value>true</param-value>
+		</init-param>
 		<init-param>
 			<param-name>com.sun.jersey.config.property.packages</param-name>
 			<param-value>jersey.ws</param-value>
@@ -35,6 +38,6 @@
 
 	<servlet-mapping>
 		<servlet-name>jerseyws</servlet-name>
-		<url-pattern>/api/*</url-pattern>
+		<url-pattern>/ws/*</url-pattern>
 	</servlet-mapping>
 </web-app>
