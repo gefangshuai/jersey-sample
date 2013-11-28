@@ -82,3 +82,6 @@ public String save(StudentForm form) {
 - shiro-core-1.2.2.jar
 - shiro-web-1.2.2.jar
 - slf4j-api-1.6.4.jar
+
+## Thanks
+My Blog: [LifeRefactor：wincn.net](http://wincn.net "LifeRefactor")
