@@ -65,6 +65,22 @@ public String save(StudentForm form) {
 	return "success";
 }
 ```
+服务器端接收query的参数(get的方式请求)：
+```
+@GET
+@Path("/list")
+@Consumes(MediaType.APPLICATION_JSON)
+public MSGForm postMessage(@QueryParam(value = "unitCode") String unitCode) {
+	log.info("分中心连接并接收消息");
+	if (unitCode == null||"".equals(unitCode)) {
+		log.info("缺少分中心编号，无法判断哪个分中心接收消息！");
+		return null;
+	}
+	MSGForm form = subMessageManager.packMsgForm(unitCode);
+	return form;
+}
+```
+
 ## Client require jar
 - jersey-client-1.18.jar
 - jersey-core-1.18.jar
